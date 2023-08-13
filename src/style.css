@@ -1,0 +1,12 @@
+@import 'normalize.css';
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+
+@import 'styles/auth-layout.css';
+@import 'styles/auth-form.css';
+
+body {
+  font-family: 'Gilroy-Regular', sans-serif;
+  overflow: hidden;
+  cursor: default;
+  background-color: #1d1d1e;
+}

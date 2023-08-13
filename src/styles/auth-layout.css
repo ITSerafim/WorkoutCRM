@@ -1,0 +1,17 @@
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+.auth-section {
+  padding: 25% 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
