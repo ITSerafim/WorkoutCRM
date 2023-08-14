@@ -30,14 +30,13 @@ const updateValue = (event: Event) => {
 <style lang="scss" scoped>
 .float-label {
   position: relative;
-  margin-bottom: 20px;
 }
 
 .custom-input {
   background-color: transparent;
   border-radius: 8px;
   border: 2px solid #2b2b2e;
-  padding: 20px 25px;
+  padding: 30px 25px;
   font-size: 12px;
   display: block;
   width: 100%;
@@ -50,7 +49,7 @@ const updateValue = (event: Event) => {
     ~ .floating {
       color: #3596fe;
       top: -8px;
-      font-size: 13px;
+      font-size: 16px;
       background: #1d1d1e;
     }
   }
@@ -65,7 +64,7 @@ const updateValue = (event: Event) => {
   position: absolute;
   pointer-events: none;
   left: 15px;
-  top: 11px;
+  top: 25px;
   padding: 0 5px;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
