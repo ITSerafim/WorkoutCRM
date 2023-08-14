@@ -1,8 +1,12 @@
 <template>
   <AuthLayout>
-    <LoginHeaderForm />
-    <LoginBodyForm />
-    <LoginFooterForm />
+    <section class="form">
+      <section>
+        <LoginHeaderForm />
+        <LoginBodyForm />
+      </section>
+      <LoginFooterForm />
+    </section>
   </AuthLayout>
 </template>
 
