@@ -1,19 +1,21 @@
 <template>
   <div class="float-label">
     <input
-      type="text"
       class="custom-input"
       placeholder=" "
+      :type="type"
       :value="modelValue"
       @input="updateValue"
     />
-    <label class="floating">First Name</label>
+    <label class="floating">{{ label }}</label>
   </div>
 </template>
 
 <script setup lang="ts">
 const props = defineProps({
   modelValue: { type: String, required: true },
+  label: String,
+  type: { type: String, default: 'text' },
 });
 
 const emit = defineEmits(['update:modelValue']);
@@ -25,7 +27,7 @@ const updateValue = (event: Event) => {
 
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 .float-label {
   position: relative;
   margin-bottom: 20px;
@@ -41,6 +43,7 @@ const updateValue = (event: Event) => {
   width: 100%;
   height: 36px;
   box-sizing: border-box;
+  color: #bbbbbb;
   &:focus {
     outline: none;
     border: 2px solid #3596fe;
