@@ -1,6 +1,6 @@
 <template>
   <form class="login-form">
-    <Input />
+    <!-- <InputUI /> -->
     <div class="form-control form_control_vertic">
       <label class="control-label" for="email">Email</label>
       <input id="email" class="control-type" type="text" required />
@@ -31,5 +31,5 @@
 </template>
 
 <script setup lang="ts">
-import Input from '../../../shared/UI/InputUI.vue';
+// import InputUI from '../../../shared/UI/InputUI.vue';
 </script>
