@@ -5,7 +5,7 @@
             :key="idx" 
             :name="route.name" 
             :path="route.path"
-            icon="profile" 
+            :icon="route.icon"
         />
     </ul>
 </template>

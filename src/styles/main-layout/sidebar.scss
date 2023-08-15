@@ -34,17 +34,25 @@
 
 .sb-link {
   text-decoration: none;
-  color: #6a757b;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 20px;
+}
+
+.sb-link,
+.sb-icon {
+  color: #6a757b;
   transition: 1s;
 }
 
-.sb-link:hover {
-  color: #3596fe;
-  filter: drop-shadow(0px 4px 24px rgba(53, 150, 254, 0.48));
+.sb-list-item:hover {
+  cursor: pointer;
+  .sb-link,
+  .sb-icon {
+    color: #3596fe;
+    filter: drop-shadow(0px 4px 24px rgba(53, 150, 254, 0.48));
+  }
 }
 
 .hr::before {
@@ -54,4 +62,23 @@
   content: '';
   border: 1px solid #363638;
   opacity: 0.5;
+}
+
+.social-icons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-icon {
+  color: #6a757b;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  color: #3596fe;
+  filter: drop-shadow(0px 4px 24px rgba(53, 150, 254, 0.48));
 }
