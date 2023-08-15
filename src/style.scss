@@ -3,11 +3,12 @@
 
 @import 'styles/auth-layout.scss';
 @import 'styles/auth-form.scss';
+@import 'styles/main-layout/sidebar.scss';
+@import 'styles/main-layout/content.scss';
 
 body {
   font-family: 'Gilroy-Regular', sans-serif;
   overflow: hidden;
   cursor: default;
   background-color: #1d1d1e;
-  
 }
