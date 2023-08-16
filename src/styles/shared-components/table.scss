@@ -1,0 +1,21 @@
+.table {
+  width: 100%;
+  border: 2px solid #2b2b2e;
+  border-radius: 8px;
+  background: #1d1d1e;
+  table-layout: fixed;
+}
+
+.table th {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: 20px;
+  border-bottom: 1px solid #2b2b2e;
+}
+
+.table td {
+  text-align: center;
+  padding: 20px;
+}
