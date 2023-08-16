@@ -1,0 +1,30 @@
+.tabs {
+  padding-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.tabs-el {
+  text-decoration: none;
+  color: #bbbbbb;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  &::after {
+    content: '';
+  }
+}
+
+.active {
+  color: #fff;
+  &::after {
+    content: '';
+    border: 1px solid #3596fe;
+    box-shadow: 0px 4px 24px 0px rgba(53, 150, 254, 0.48);
+  }
+}
