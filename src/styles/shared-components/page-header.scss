@@ -1,0 +1,16 @@
+.page-header {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 45px 0;
+
+  &-btns {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+}
