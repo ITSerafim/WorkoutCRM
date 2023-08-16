@@ -1,29 +1,25 @@
 <template>
-  <table class="table">
-    <thead>
-      <tr>
-        <th v-for="(column, idx) of props.columns" :key="idx">{{ column }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-if="data?.length === 0">
-        <td>{{ emptyMessage }}</td>
-      </tr>
-      <tr v-else>
-        <td v-for="(item, idx) of props.data" :key="idx">{{ item }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <BaseTable
+    :columns="columns"
+    :data="data"
+    empty-message="Тренировки отсутствуют"
+  />
 </template>
 
 <script setup lang="ts">
-interface TableProps {
-  columns: string[];
-  emptyMessage: string;
-  data?: unknown[];
-}
+import BaseTable from '../../shared/components/base-table/BaseTable.vue';
 
-const props = defineProps<TableProps>();
+const columns: string[] = [
+  'Название тренировок',
+  'Описание тренировок',
+  'Дата тренировок',
+  'Кол-во подходов',
+  'Кол-во кругов',
+  'Кол-во упражнений',
+  'Время отдыха между кругами',
+  'Время отдыха между подходами',
+  'Время отдыха между упражнениями',
+];
 
+const data: unknown[] = [];
 </script>
-

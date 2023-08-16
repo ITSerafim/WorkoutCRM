@@ -1,28 +1,29 @@
 <template>
   <MainLayout>
     <PageHeader header="Тренировки" />
-    <WorkoutTable :columns="columns" :data="data" empty-message="Тренировки отсутствуют" />
+    <TabsUI :routes="tabs" />
+    <router-view />
   </MainLayout>
 </template>
 
 <script setup lang="ts">
 import MainLayout from '../layouts/MainLayout.vue';
 import PageHeader from '../shared/components/page-header/PageHeader.vue';
-import WorkoutTable from '../components/workout/WorkoutTable.vue';
+import { Route } from '../shared/types/Route';
+import TabsUI from '../shared/UI/TabsUI.vue';
 
-const columns: string[] = [
-  'Название тренировок',
-  'Описание тренировок',
-  'Дата тренировок',
-  'Кол-во подходов',
-  'Кол-во кругов',
-  'Кол-во упражнений',
-  'Время отдыха между кругами',
-  'Время отдыха между подходами',
-  'Время отдыха между упражнениями'
-];
-
-
-const data: unknown[] = [
+const tabs: Route[] = [
+  {
+    path: '/workout/all',
+    name: 'Тренировки',
+  },
+  {
+    path: '/workout/exercises',
+    name: 'Упражнения',
+  },
+  {
+    path: '/workout/types',
+    name: 'Тип тренировки',
+  },
 ];
 </script>
