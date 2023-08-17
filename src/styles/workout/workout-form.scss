@@ -1,0 +1,19 @@
+.workout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.workout-form__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+}
+
+.btn-calendar {
+  background: #3596fe !important;
+  &:active {
+    filter: drop-shadow(0px 4px 24px rgba(53, 150, 254, 0.48));
+  }
+}
