@@ -7,23 +7,15 @@
     />
     <div class="workout-form__grid">
       <InputWithoutFloatingUI
-        :model-value="workout.name"
-        label="Кол-во подходов"
-      ></InputWithoutFloatingUI>
-      <InputWithoutFloatingUI
-        :model-value="workout.name"
+        :model-value="workout.cyclesCount"
         label="Кол-во кругов"
       ></InputWithoutFloatingUI>
       <InputWithoutFloatingUI
-        :model-value="workout.name"
+        :model-value="workout.cyclesCountTimeout"
         label="Время отдыха между кругами"
       ></InputWithoutFloatingUI>
       <InputWithoutFloatingUI
-        :model-value="workout.name"
-        label="Время отдыха между подходами"
-      ></InputWithoutFloatingUI>
-      <InputWithoutFloatingUI
-        :model-value="workout.name"
+        :model-value="workout.exerciseTimeout"
         label="Время отдыха между упражнениями"
       ></InputWithoutFloatingUI>
     </div>
@@ -31,13 +23,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import InputUI from '../../shared/UI/InputUI.vue';
 import TextareaUI from '../../shared/UI/TextareaUI.vue';
 import InputWithoutFloatingUI from '../../shared/UI/InputWithoutFloatingUI.vue';
 
-const workout = ref({
-  name: '',
-  description: '',
+const workout = defineProps({
+  name: { type: String, default: '' },
+  description: { type: String, default: '' },
+  dateWorkout: { type: Date, default: Date.now() },
+  cyclesCount: { type: Number, default: 0 },
+  cyclesCountTimeout: { type: Number, default: 0 },
+  exerciseTimeout: { type: Number, default: 0 },
 });
 </script>

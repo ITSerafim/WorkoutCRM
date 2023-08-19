@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 defineProps({
-  modelValue: { type: String, required: true },
+  modelValue: { type: [String, Number], required: true },
   label: { type: String, required: true },
   type: { type: String, default: 'text' },
 });
