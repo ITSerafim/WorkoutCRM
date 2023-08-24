@@ -1,7 +1,7 @@
 <template>
   <BaseTable
     :columns="columns"
-    :data="data"
+    :data="workouts"
     empty-message="Тренировки отсутствуют"
     @row-click="(item: any) => rowClickHandler(item)"
   >
@@ -9,7 +9,7 @@
       {{ mapper(item, field) }}
     </template>
   </BaseTable>
-  <Teleport to="body">
+  <!-- <Teleport to="body">
     <ModalUI :show="showModal" @close="showModal = false">
       <template #header>
         <h3>Редактирование тренировки</h3>
@@ -30,17 +30,16 @@
         </ButtonUI>
       </template>
     </ModalUI>
-  </Teleport>
+  </Teleport> -->
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import WorkoutCreateForm from './WorkoutCreateForm.vue';
 import BaseTable from '../../shared/components/base-table/BaseTable.vue';
 import { BaseTableColumns } from '../../shared/types/BaseTableColumns';
-import ModalUI from '../../shared/UI/ModalUI.vue';
-import ButtonUI from '../../shared/UI/ButtonUI.vue';
-import DatePickerUI from '../../shared/UI/DatePickerUI.vue';
+import { useWorkoutStore } from '../../store/workout';
+
+const { workouts } = useWorkoutStore();
 
 const columns: BaseTableColumns[] = [
   { header: 'Название тренировки', field: 'name' },
@@ -68,19 +67,6 @@ function rowClickHandler(item: any) {
   showModal.value = true;
   currentItem.value = item;
 }
-
-const data: unknown[] = [
-  {
-    name: 'Тренировка 1',
-    description: 'Описание для тренировки 1',
-    dateWorkout: new Date(Date.now()).toISOString(),
-    cyclesCount: 10,
-    cyclesCountTimeout: 2,
-    exerciseTimeout: 2,
-  },
-];
-
-const date = ref(new Date());
 
 const showModal = ref(false);
 

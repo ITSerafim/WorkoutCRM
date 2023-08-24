@@ -9,13 +9,9 @@
           <h3>Создание тренировки</h3>
         </template>
         <template #body>
-          <workout-create-form></workout-create-form>
-        </template>
-        <template #footer>
-          <DatePickerUI :model-value="date" />
-          <ButtonUI class="login" @click="showModal = false">
-            Создать тренировку
-          </ButtonUI>
+          <workout-create-form
+            @create="(workout: Workout) => createWorkout(workout)"
+          ></workout-create-form>
         </template>
       </ModalUI>
     </Teleport>
@@ -28,10 +24,17 @@ import MainLayout from '../layouts/MainLayout.vue';
 import PageHeader from '../shared/components/page-header/PageHeader.vue';
 import ModalUI from '../shared/UI/ModalUI.vue';
 import TabsUI from '../shared/UI/TabsUI.vue';
-import ButtonUI from '../shared/UI/ButtonUI.vue';
 import WorkoutCreateForm from '../components/workout/WorkoutCreateForm.vue';
 import { Route } from '../shared/types/Route';
-import DatePickerUI from '../shared/UI/DatePickerUI.vue';
+import { Workout } from '../models/Workout';
+import { useWorkoutStore } from '../store/workout';
+
+const { addWorkout } = useWorkoutStore();
+
+function createWorkout(workout: Workout) {
+  addWorkout(workout);
+  showModal.value = false;
+}
 
 const tabs: Route[] = [
   {
@@ -47,8 +50,6 @@ const tabs: Route[] = [
     name: 'Тип тренировки',
   },
 ];
-
-const date = ref(new Date());
 
 const showModal = ref(false);
 </script>

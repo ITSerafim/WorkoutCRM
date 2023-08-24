@@ -1,38 +1,51 @@
 <template>
   <form class="workout-form">
-    <InputUI :model-value="workout.name" label="Название тренировки" />
-    <TextareaUI
-      :model-value="workout.description"
-      label="Описание тренировки"
-    />
+    <InputUI v-model="workout.name" label="Название тренировки" />
+    <TextareaUI v-model="workout.description" label="Описание тренировки" />
     <div class="workout-form__grid">
       <InputWithoutFloatingUI
-        :model-value="workout.cyclesCount"
+        v-model="workout.cyclesCount"
         label="Кол-во кругов"
       ></InputWithoutFloatingUI>
       <InputWithoutFloatingUI
-        :model-value="workout.cyclesCountTimeout"
+        v-model="workout.cyclesCountTimeout"
         label="Время отдыха между кругами"
       ></InputWithoutFloatingUI>
       <InputWithoutFloatingUI
-        :model-value="workout.exerciseTimeout"
+        v-model="workout.exerciseTimeout"
         label="Время отдыха между упражнениями"
       ></InputWithoutFloatingUI>
+    </div>
+    <div class="modal-footer">
+      <DatePickerUI v-model="dateWorkout" />
+      <ButtonUI
+        type="submit"
+        class="login"
+        @click.prevent="$emit('create', { ...workout, dateWorkout })"
+      >
+        Создать тренировку
+      </ButtonUI>
     </div>
   </form>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import InputUI from '../../shared/UI/InputUI.vue';
 import TextareaUI from '../../shared/UI/TextareaUI.vue';
 import InputWithoutFloatingUI from '../../shared/UI/InputWithoutFloatingUI.vue';
+import { Workout } from '../../models/Workout';
+import ButtonUI from '../../shared/UI/ButtonUI.vue';
+import DatePickerUI from '../../shared/UI/DatePickerUI.vue';
 
-const workout = defineProps({
-  name: { type: String, default: '' },
-  description: { type: String, default: '' },
-  dateWorkout: { type: Date, default: Date.now() },
-  cyclesCount: { type: Number, default: 0 },
-  cyclesCountTimeout: { type: Number, default: 0 },
-  exerciseTimeout: { type: Number, default: 0 },
+const workout = ref<Workout>({
+  name: '',
+  description: '',
+  dateWorkout: '',
+  cyclesCount: 0,
+  cyclesCountTimeout: 0,
+  exerciseTimeout: 0,
 });
+
+const dateWorkout = ref(new Date());
 </script>
