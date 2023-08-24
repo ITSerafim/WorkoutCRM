@@ -1,0 +1,38 @@
+<template>
+  <form class="workout-form">
+    <InputUI :model-value="workout.name" label="Название тренировки" />
+    <TextareaUI
+      :model-value="workout.description"
+      label="Описание тренировки"
+    />
+    <div class="workout-form__grid">
+      <InputWithoutFloatingUI
+        :model-value="workout.cyclesCount"
+        label="Кол-во кругов"
+      ></InputWithoutFloatingUI>
+      <InputWithoutFloatingUI
+        :model-value="workout.cyclesCountTimeout"
+        label="Время отдыха между кругами"
+      ></InputWithoutFloatingUI>
+      <InputWithoutFloatingUI
+        :model-value="workout.exerciseTimeout"
+        label="Время отдыха между упражнениями"
+      ></InputWithoutFloatingUI>
+    </div>
+  </form>
+</template>
+
+<script setup lang="ts">
+import InputUI from '../../shared/UI/InputUI.vue';
+import TextareaUI from '../../shared/UI/TextareaUI.vue';
+import InputWithoutFloatingUI from '../../shared/UI/InputWithoutFloatingUI.vue';
+
+const workout = defineProps({
+  name: { type: String, default: '' },
+  description: { type: String, default: '' },
+  dateWorkout: { type: Date, default: Date.now() },
+  cyclesCount: { type: Number, default: 0 },
+  cyclesCountTimeout: { type: Number, default: 0 },
+  exerciseTimeout: { type: Number, default: 0 },
+});
+</script>

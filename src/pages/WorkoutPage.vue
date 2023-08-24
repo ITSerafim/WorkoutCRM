@@ -1,16 +1,37 @@
 <template>
   <MainLayout>
-    <PageHeader header="Тренировки" />
+    <PageHeader header="Тренировки" @open="showModal = true" />
     <TabsUI :routes="tabs" />
     <router-view />
+    <Teleport to="body">
+      <ModalUI :show="showModal" @close="showModal = false">
+        <template #header>
+          <h3>Создание тренировки</h3>
+        </template>
+        <template #body>
+          <workout-create-form></workout-create-form>
+        </template>
+        <template #footer>
+          <DatePickerUI :model-value="date" />
+          <ButtonUI class="login" @click="showModal = false">
+            Создать тренировку
+          </ButtonUI>
+        </template>
+      </ModalUI>
+    </Teleport>
   </MainLayout>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import MainLayout from '../layouts/MainLayout.vue';
 import PageHeader from '../shared/components/page-header/PageHeader.vue';
-import { Route } from '../shared/types/Route';
+import ModalUI from '../shared/UI/ModalUI.vue';
 import TabsUI from '../shared/UI/TabsUI.vue';
+import ButtonUI from '../shared/UI/ButtonUI.vue';
+import WorkoutCreateForm from '../components/workout/WorkoutCreateForm.vue';
+import { Route } from '../shared/types/Route';
+import DatePickerUI from '../shared/UI/DatePickerUI.vue';
 
 const tabs: Route[] = [
   {
@@ -26,4 +47,8 @@ const tabs: Route[] = [
     name: 'Тип тренировки',
   },
 ];
+
+const date = ref(new Date());
+
+const showModal = ref(false);
 </script>

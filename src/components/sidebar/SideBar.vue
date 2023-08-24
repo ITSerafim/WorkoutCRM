@@ -1,6 +1,6 @@
 <template>
     <sidebar class="sb">
-        <img src="src/assets/logo.png" alt="logo" class="sb-logo">
+        <img src="../../assets/logo.png" alt="logo" class="sb-logo">
         <SidebarList :routes="routesRef" />
         <span class="hr"></span>
         <div class="social-icons">
