@@ -9,37 +9,36 @@
       {{ mapper(item, field) }}
     </template>
   </BaseTable>
-  <!-- <Teleport to="body">
-    <ModalUI :show="showModal" @close="showModal = false">
+  <Teleport to="body">
+    <ModalUI :show="showModal">
       <template #header>
         <h3>Редактирование тренировки</h3>
       </template>
       <template #body>
-        <workout-create-form
+        <workout-edit-form
+          :date-workout="currentItem['dateWorkout']"
           :name="currentItem['name']"
           :description="currentItem['description']"
           :cycles-count="currentItem['cyclesCount']"
           :cycles-count-timeout="currentItem['cyclesCountTimeout']"
           :exercise-timeout="currentItem['exerciseTimeout']"
-        ></workout-create-form>
-      </template>
-      <template #footer>
-        <DatePickerUI :model-value="date" />
-        <ButtonUI class="login" @click="showModal = false">
-          Создать тренировку
-        </ButtonUI>
+          @update="(workout: Workout) => update(workout)"
+        ></workout-edit-form>
       </template>
     </ModalUI>
-  </Teleport> -->
+  </Teleport>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import WorkoutEditForm from './WorkoutEditForm.vue';
 import BaseTable from '../../shared/components/base-table/BaseTable.vue';
+import ModalUI from '../../shared/UI/ModalUI.vue';
 import { BaseTableColumns } from '../../shared/types/BaseTableColumns';
+import { Workout } from '../../models/Workout';
 import { useWorkoutStore } from '../../store/workout';
 
-const { workouts } = useWorkoutStore();
+const { workouts, updateWorkout } = useWorkoutStore();
 
 const columns: BaseTableColumns[] = [
   { header: 'Название тренировки', field: 'name' },
@@ -68,7 +67,12 @@ function rowClickHandler(item: any) {
   currentItem.value = item;
 }
 
-const showModal = ref(false);
+function update(workout: Workout) {
+  updateWorkout({ ...workout, id: currentItem.value.id });
+  showModal.value = false;
+}
+
+const showModal = ref<boolean>(false);
 
 const currentItem = ref<any>(null);
 </script>
