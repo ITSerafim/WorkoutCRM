@@ -1,7 +1,7 @@
 <template>
   <BaseTable
     :columns="columns"
-    :data="data"
+    :data="workouts"
     empty-message="Тренировки отсутствуют"
     @row-click="(item: any) => rowClickHandler(item)"
   >
@@ -10,24 +10,20 @@
     </template>
   </BaseTable>
   <Teleport to="body">
-    <ModalUI :show="showModal" @close="showModal = false">
+    <ModalUI :show="showModal">
       <template #header>
         <h3>Редактирование тренировки</h3>
       </template>
       <template #body>
-        <workout-create-form
+        <workout-edit-form
+          :date-workout="currentItem['dateWorkout']"
           :name="currentItem['name']"
           :description="currentItem['description']"
           :cycles-count="currentItem['cyclesCount']"
           :cycles-count-timeout="currentItem['cyclesCountTimeout']"
           :exercise-timeout="currentItem['exerciseTimeout']"
-        ></workout-create-form>
-      </template>
-      <template #footer>
-        <DatePickerUI :model-value="date" />
-        <ButtonUI class="login" @click="showModal = false">
-          Создать тренировку
-        </ButtonUI>
+          @update="(workout: Workout) => update(workout)"
+        ></workout-edit-form>
       </template>
     </ModalUI>
   </Teleport>
@@ -35,12 +31,14 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import WorkoutCreateForm from './WorkoutCreateForm.vue';
+import WorkoutEditForm from './WorkoutEditForm.vue';
 import BaseTable from '../../shared/components/base-table/BaseTable.vue';
-import { BaseTableColumns } from '../../shared/types/BaseTableColumns';
 import ModalUI from '../../shared/UI/ModalUI.vue';
-import ButtonUI from '../../shared/UI/ButtonUI.vue';
-import DatePickerUI from '../../shared/UI/DatePickerUI.vue';
+import { BaseTableColumns } from '../../shared/types/BaseTableColumns';
+import { Workout } from '../../models/Workout';
+import { useWorkoutStore } from '../../store/workout';
+
+const { workouts, updateWorkout } = useWorkoutStore();
 
 const columns: BaseTableColumns[] = [
   { header: 'Название тренировки', field: 'name' },
@@ -69,20 +67,12 @@ function rowClickHandler(item: any) {
   currentItem.value = item;
 }
 
-const data: unknown[] = [
-  {
-    name: 'Тренировка 1',
-    description: 'Описание для тренировки 1',
-    dateWorkout: new Date(Date.now()).toISOString(),
-    cyclesCount: 10,
-    cyclesCountTimeout: 2,
-    exerciseTimeout: 2,
-  },
-];
+function update(workout: Workout) {
+  updateWorkout({ ...workout, id: currentItem.value.id });
+  showModal.value = false;
+}
 
-const date = ref(new Date());
-
-const showModal = ref(false);
+const showModal = ref<boolean>(false);
 
 const currentItem = ref<any>(null);
 </script>

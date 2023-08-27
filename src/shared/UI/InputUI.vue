@@ -12,9 +12,9 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
   modelValue: { type: String, required: true },
-  label: String,
+  label: { type: String, required: true },
   type: { type: String, default: 'text' },
 });
 
@@ -24,8 +24,6 @@ const updateValue = (event: Event) => {
   emit('update:modelValue', (event.target as HTMLInputElement).value);
 };
 </script>
-
-
 
 <style lang="scss" scoped>
 .float-label {

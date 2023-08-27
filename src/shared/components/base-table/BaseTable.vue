@@ -12,7 +12,7 @@
         v-for="(item, idx) of props.data"
         :key="idx"
         class="body-row"
-        @click="$emit('rowClick', item)"
+        @click="$emit('rowClick', { ...item, id: item.id })"
       >
         <td v-for="(field, i) of props.columns" :key="i">
           <slot name="mapping" :item="item" :field="field.field"> </slot>

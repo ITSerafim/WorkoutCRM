@@ -17,13 +17,14 @@
       ></InputWithoutFloatingUI>
     </div>
     <div class="modal-footer">
-      <DatePickerUI v-model="dateWorkout" />
+      <DatePickerUI v-model="date" />
+
       <ButtonUI
         type="submit"
         class="login"
-        @click.prevent="$emit('create', { ...workout, dateWorkout })"
+        @click.prevent="$emit('update', { ...workout, dateWorkout: date })"
       >
-        Создать тренировку
+        Обновить тренировку
       </ButtonUI>
     </div>
   </form>
@@ -38,14 +39,11 @@ import { Workout } from '../../models/Workout';
 import ButtonUI from '../../shared/UI/ButtonUI.vue';
 import DatePickerUI from '../../shared/UI/DatePickerUI.vue';
 
-const workout = ref<Workout>({
-  name: '',
-  description: '',
-  dateWorkout: '',
-  cyclesCount: 0,
-  cyclesCountTimeout: 0,
-  exerciseTimeout: 0,
-});
+interface EditFormProps extends Workout {}
 
-const dateWorkout = ref(new Date());
+const workoutProps = defineProps<EditFormProps>();
+
+const workout = ref<Workout>({ ...workoutProps });
+
+const date = new Date(workoutProps.dateWorkout);
 </script>
