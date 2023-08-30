@@ -5,11 +5,13 @@
 
 .sb {
   width: 100%;
-  max-width: 340px;
+  max-width: 200px;
   display: flex;
   flex-direction: column;
   padding: 45px 50px;
   gap: 55px;
+  height: 100%;
+  overflow: auto;
 }
 
 .sb-logo {
@@ -81,4 +83,34 @@
 .social-icon:hover {
   color: #3596fe;
   filter: drop-shadow(0px 4px 24px rgba(53, 150, 254, 0.48));
+}
+
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 3.5rem;
+  left: 1rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .sb {
+    top: 0;
+    position: fixed;
+    left: -250px;
+    height: 100vh;
+    width: 100%;
+    max-width: 250px;
+    transition: 0.2s linear;
+  }
+
+  .sb.active {
+    left: 0;
+    z-index: 1000;
+    background-color: #212123;
+  }
 }
