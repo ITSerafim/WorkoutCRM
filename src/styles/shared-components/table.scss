@@ -1,12 +1,30 @@
-.table {
-  width: 100%;
-  border: 2px solid #2b2b2e;
-  border-radius: 8px;
-  background: #1d1d1e;
-  table-layout: fixed;
+.table-scroll {
+  height: 250px;
+  overflow-x: auto;
 }
 
-.table th {
+.table-head {
+  width: 100%;
+  background: #1d1d1e;
+  table-layout: fixed;
+  border-radius: 8px;
+  border-left: 1px solid #2b2b2e;
+  border-right: 1px solid #2b2b2e;
+  border-top: 1px solid #2b2b2e;
+}
+
+.table {
+  width: 100%;
+  background: #1d1d1e;
+  table-layout: fixed;
+  border-left: 1px solid #2b2b2e;
+  border-right: 1px solid #2b2b2e;
+  border-bottom: 1px solid #2b2b2e;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.table-head th {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;

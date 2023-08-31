@@ -21,5 +21,9 @@ const columns: BaseTableColumns[] = [
   },
 ];
 
-const data: unknown[] = [];
+interface WorkoutType {
+  id?: number;
+}
+
+const data: WorkoutType[] = [];
 </script>
