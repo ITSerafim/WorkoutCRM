@@ -19,5 +19,9 @@ const columns: BaseTableColumns[] = [
   { header: 'Время отдыха между подходами', field: 'setsCountTime' },
 ];
 
-const data: unknown[] = [];
+interface Exc {
+  id: number;
+}
+
+const data: Exc[] = [];
 </script>

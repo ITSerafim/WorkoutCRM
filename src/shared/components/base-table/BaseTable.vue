@@ -30,7 +30,7 @@
   </div>
 </template>
 
-<script setup lang="ts" generic="T">
+<script setup lang="ts" generic="T extends { id?: number }">
 interface TableProps {
   columns: any[];
   emptyMessage: string;

@@ -1,9 +1,13 @@
 <template>
-  <button :class="`btn ${extraClass}`" :type="type"><slot></slot></button>
+  <button :class="`btn ${extraClass}`" :type="(type as BtnType)">
+    <slot></slot>
+  </button>
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
+type BtnType = 'button' | 'submit' | 'reset';
+
+defineProps({
   type: {
     type: String,
     default: 'button',
@@ -12,10 +16,6 @@ const props = defineProps({
   extraClass: String,
 });
 </script>
-
-
-
-
 
 <style lang="scss" scoped>
 .btn {
