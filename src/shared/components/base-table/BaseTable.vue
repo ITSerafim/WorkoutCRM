@@ -17,7 +17,7 @@
           class="body-row"
           @click="$emit('rowClick', { ...item, id: item.id })"
         >
-          <td v-for="(field, i) of props.columns" :key="i">
+          <td v-for="(field, i) of props.columns" :key="i" :data-label="field.field">
             <slot name="mapping" :item="item" :field="field.field"> </slot>
           </td>
         </tr>
