@@ -1,5 +1,5 @@
 <template>
-  <button :class="`btn ${extraClass}`" :type="(type as BtnType)">
+  <button :class="`btn ${extraClass}`" :type="type as BtnType">
     <slot></slot>
   </button>
 </template>
@@ -29,5 +29,10 @@ defineProps({
   line-height: normal;
   color: #fff;
   cursor: pointer;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
 }
 </style>

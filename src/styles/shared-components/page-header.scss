@@ -14,3 +14,10 @@
     gap: 25px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .page-header {
+    font-size: 20px;
+    flex-direction: column;
+  }
+}

@@ -13,7 +13,9 @@
 .modal-container {
   width: 35vw;
   padding: 40px;
-  margin: auto;
+  height: 70vh;
+  overflow: auto;
+  margin: 100px auto;
   border-radius: 8px;
   border: 2px solid #2b2b2e;
   background: #1d1d1e;
@@ -57,4 +59,17 @@
 .modal-leave-to .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .modal-header h3 {
+    font-size: 24px;
+  }
+
+  .modal-container {
+    width: 55vw;
+    height: 60vh;
+    overflow: auto;
+    margin: 10% auto;
+  }
 }

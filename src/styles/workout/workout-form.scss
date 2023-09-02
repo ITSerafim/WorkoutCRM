@@ -17,3 +17,10 @@
     filter: drop-shadow(0px 4px 24px rgba(53, 150, 254, 0.48));
   }
 }
+
+@media screen and (max-width: 768px) {
+  .workout-form__grid {
+    display: flex;
+    flex-direction: column;
+  }
+}
