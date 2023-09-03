@@ -14,7 +14,7 @@ const columns: BaseTableColumns[] = [
   { header: 'Название упражнения', field: 'name' },
   { header: 'Описание упражнения', field: 'description' },
   { header: 'Кол-во повторений', field: 'repeatsCount' },
-  { header: 'Кол-во подходов', field: 'setsCounte' },
+  { header: 'Кол-во подходов', field: 'setsCount' },
   { header: 'Время отдыха между повторениями', field: 'repeatsCountTime' },
   { header: 'Время отдыха между подходами', field: 'setsCountTime' },
 ];
