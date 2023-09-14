@@ -1,6 +1,11 @@
 <template>
   <MainLayout>
-    <PageHeader header="Тренировки" @open="showModal = true" />
+    <PageHeader
+      header="Тренировки"
+      share-name="тренировкой"
+      create-name="тренировку"
+      @open="showModal = true"
+    />
     <TabsUI :routes="tabs" />
     <router-view />
     <Teleport to="body">
