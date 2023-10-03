@@ -20,16 +20,16 @@ const routes = [
     children: [
       {
         path: 'all',
-        component: () => import('./components/workout/WorkoutTable.vue'),
+        component: () => import('./components/workout-page/workout/WorkoutTable.vue'),
       },
       {
         path: 'exercises',
-        component: () => import('./components/exercise/ExerciseTable.vue'),
+        component: () => import('./components/workout-page/exercise/ExerciseTable.vue'),
       },
       {
         path: 'types',
         component: () =>
-          import('./components/workout-type/WorkoutTypeTable.vue'),
+          import('./components/workout-page/workout-type/WorkoutTypeTable.vue'),
       },
     ],
   },

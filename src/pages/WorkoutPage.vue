@@ -1,12 +1,6 @@
 <template>
   <MainLayout>
-    <PageHeader
-      header="Тренировки"
-      share-name="тренировкой"
-      create-name="тренировку"
-      @open="showModal = true"
-    />
-    <TabsUI :routes="tabs" />
+    <WorkoutTabs @openModal="showModal = true" />
     <router-view />
     <Teleport to="body">
       <ModalUI :show="showModal" @close="showModal = false">
@@ -26,11 +20,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import MainLayout from '../layouts/MainLayout.vue';
-import PageHeader from '../shared/components/page-header/PageHeader.vue';
 import ModalUI from '../shared/UI/ModalUI.vue';
-import TabsUI from '../shared/UI/TabsUI.vue';
-import WorkoutCreateForm from '../components/workout/WorkoutCreateForm.vue';
-import { Route } from '../shared/types/Route';
+import WorkoutTabs from '../components/workout-page/widgets/WorkoutTabs.vue';
+import WorkoutCreateForm from '../components/workout-page/workout/WorkoutCreateForm.vue';
 import { Workout } from '../models/Workout';
 import { useWorkoutStore } from '../store/workout';
 
@@ -40,21 +32,6 @@ function createWorkout(workout: Workout) {
   addWorkout(workout);
   showModal.value = false;
 }
-
-const tabs: Route[] = [
-  {
-    path: '/workout/all',
-    name: 'Тренировки',
-  },
-  {
-    path: '/workout/exercises',
-    name: 'Упражнения',
-  },
-  {
-    path: '/workout/types',
-    name: 'Тип тренировки',
-  },
-];
 
 const showModal = ref(false);
 </script>

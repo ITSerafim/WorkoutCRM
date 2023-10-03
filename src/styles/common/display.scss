@@ -1,0 +1,28 @@
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+// align-items
+.ai-center {
+  align-items: center;
+}
+
+//justify-content
+.jc-space {
+  justify-content: space-between;
+}
+
+@for $count from 0 through 100 {
+  .gap-#{$count} {
+    gap: 1px * $count;
+  }
+
+  .gap-#{$count}-imp {
+    gap: 1px * $count !important;
+  }
+}
