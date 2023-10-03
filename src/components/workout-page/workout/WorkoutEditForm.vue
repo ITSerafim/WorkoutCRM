@@ -32,12 +32,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import InputUI from '../../shared/UI/InputUI.vue';
-import TextareaUI from '../../shared/UI/TextareaUI.vue';
-import InputWithoutFloatingUI from '../../shared/UI/InputWithoutFloatingUI.vue';
-import { Workout } from '../../models/Workout';
-import ButtonUI from '../../shared/UI/ButtonUI.vue';
-import DatePickerUI from '../../shared/UI/DatePickerUI.vue';
+import InputUI from '../../../shared/UI/InputUI.vue';
+import TextareaUI from '../../../shared/UI/TextareaUI.vue';
+import InputWithoutFloatingUI from '../../../shared/UI/InputWithoutFloatingUI.vue';
+import { Workout } from '../../../models/Workout';
+import ButtonUI from '../../../shared/UI/ButtonUI.vue';
+import DatePickerUI from '../../../shared/UI/DatePickerUI.vue';
 
 interface EditFormProps extends Workout {}
 

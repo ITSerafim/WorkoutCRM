@@ -5,9 +5,10 @@
     <div class="page-header-btns">
       <ButtonUI>Поделиться {{ shareName }}</ButtonUI>
       <ButtonUI extra-class="login" @click="$emit('open')"
-        >Создать {{ createName }}</ButtonUI
+        >Добавить {{ createName }}</ButtonUI
       >
     </div>
+    <slot></slot>
   </section>
 </template>
 

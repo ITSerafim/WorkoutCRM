@@ -32,11 +32,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import WorkoutEditForm from './WorkoutEditForm.vue';
-import BaseTable from '../../shared/components/base-table/BaseTable.vue';
-import ModalUI from '../../shared/UI/ModalUI.vue';
-import { BaseTableColumns } from '../../shared/types/BaseTableColumns';
-import { Workout } from '../../models/Workout';
-import { useWorkoutStore } from '../../store/workout';
+import BaseTable from '../../../shared/components/base-table/BaseTable.vue';
+import { BaseTableColumns } from '../../../shared/types/BaseTableColumns';
+import ModalUI from '../../../shared/UI/ModalUI.vue';
+import { Workout } from '../../../models/Workout.ts';
+import { useWorkoutStore } from '../../../store/workout.ts';
 
 const { workouts, updateWorkout } = useWorkoutStore();
 

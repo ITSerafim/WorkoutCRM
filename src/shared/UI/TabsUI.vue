@@ -1,23 +1,20 @@
 <template>
   <section class="tabs">
     <router-link
-      v-for="(route, idx) in props.routes"
+      v-for="(tab, idx) in props.tabs"
       :key="idx"
+      :to="tab.path as string"
       active-class="active"
-      :to="route.path"
       class="tabs-el"
+      @click="$emit('tabInfo', tab)"
     >
-      {{ route.name }}
+      {{ tab.name }}
     </router-link>
   </section>
 </template>
 
 <script setup lang="ts">
-import { Route } from '../types/Route';
+import { TabProps } from '../types/props/TabProps';
 
-interface TabsProps {
-  routes: Route[];
-}
-
-const props = defineProps<TabsProps>();
+const props = defineProps<TabProps>();
 </script>
