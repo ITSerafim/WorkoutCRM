@@ -3,8 +3,8 @@
   <section class="page-header">
     <h2>{{ header }}</h2>
     <div class="page-header-btns">
-      <ButtonUI>Поделиться {{ shareName }}</ButtonUI>
-      <ButtonUI extra-class="login" @click="$emit('open')"
+      <ButtonUI btn-class="btn-secondary">Поделиться {{ shareName }}</ButtonUI>
+      <ButtonUI btn-class="btn-primary" @click="$emit('open')"
         >Добавить {{ createName }}</ButtonUI
       >
     </div>

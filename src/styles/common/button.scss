@@ -1,0 +1,40 @@
+@mixin btn-base {
+  border-radius: 8px;
+  padding: 18px 20px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  @include btn-base;
+  border: 2px solid $border-main;
+  background: $bg-main;
+  color: $text-main;
+  transition: 0.5s;
+
+  &:hover {
+    filter: drop-shadow(0px 4px 24px $shadow-color-secondary);
+  }
+}
+
+.btn-primary {
+  @include btn-base;
+  border: 2px solid $border-active;
+  background: $bg-active;
+  color: $text-main;
+  transition: 0.5s;
+
+  &:hover {
+    filter: drop-shadow(0px 4px 24px $shadow-color);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .btn {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}

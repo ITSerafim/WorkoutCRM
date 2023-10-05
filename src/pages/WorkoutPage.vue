@@ -8,9 +8,10 @@
           <h3>Создание тренировки</h3>
         </template>
         <template #body>
-          <workout-create-form
+          <WorkoutDynamicForm buttonTitle="Добавить"></WorkoutDynamicForm>
+          <!-- <workout-create-form
             @create="(workout: Workout) => createWorkout(workout)"
-          ></workout-create-form>
+          ></workout-create-form> -->
         </template>
       </ModalUI>
     </Teleport>
@@ -22,9 +23,10 @@ import { ref } from 'vue';
 import MainLayout from '../layouts/MainLayout.vue';
 import ModalUI from '../shared/UI/ModalUI.vue';
 import WorkoutTabs from '../components/workout-page/widgets/WorkoutTabs.vue';
-import WorkoutCreateForm from '../components/workout-page/workout/WorkoutCreateForm.vue';
+// import WorkoutCreateForm from '../components/workout-page/workout/WorkoutCreateForm.vue';
 import { Workout } from '../models/Workout';
 import { useWorkoutStore } from '../store/workout';
+import WorkoutDynamicForm from '../components/workout-page/widgets/WorkoutDynamicForm.vue';
 
 const { addWorkout } = useWorkoutStore();
 
