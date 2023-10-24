@@ -1,5 +1,5 @@
-import { Config } from './Config';
+import { FormGroup } from './FormGroup';
 
 export interface BaseFormProps {
-  config: Config;
+  config: FormGroup[];
 }

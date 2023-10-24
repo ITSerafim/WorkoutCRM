@@ -1,12 +1,16 @@
 <template>
-  <div v-for="(control, idx) of config" :key="idx">
-    <component
-      :is="controls[control.control]"
-      v-model="control.value"
-      :label="control.label"
-      @callback="$emit('submit')"
-    ></component>
-  </div>
+  <template v-for="formGroup of config" :key="formGroup.id">
+    <section :class="formGroup.styles">
+      <div v-for="(control, idx) of formGroup.controls" :key="idx">
+        <component
+          :is="controls[control.control]"
+          v-model="control.value"
+          :label="control.label"
+          @callback="$emit('submit')"
+        ></component>
+      </div>
+    </section>
+  </template>
 </template>
 
 <script setup lang="ts">
