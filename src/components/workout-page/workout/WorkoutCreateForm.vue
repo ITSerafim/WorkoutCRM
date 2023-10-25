@@ -1,52 +1,87 @@
 <template>
   <form class="workout-form">
-    <InputUI v-model="workout.name" label="Название тренировки" />
-    <TextareaUI v-model="workout.description" label="Описание тренировки" />
-    <div class="workout-form__grid">
-      <InputWithoutFloatingUI
-        v-model="workout.cyclesCount"
-        label="Кол-во кругов"
-      ></InputWithoutFloatingUI>
-      <InputWithoutFloatingUI
-        v-model="workout.cyclesCountTimeout"
-        label="Время отдыха между кругами"
-      ></InputWithoutFloatingUI>
-      <InputWithoutFloatingUI
-        v-model="workout.exerciseTimeout"
-        label="Время отдыха между упражнениями"
-      ></InputWithoutFloatingUI>
-    </div>
-    <div class="modal-footer">
-      <DatePickerUI v-model="dateWorkout" />
-      <ButtonUI
-        type="submit"
-        class="login"
-        @click.prevent="$emit('create', { ...workout, dateWorkout })"
-      >
-        Создать тренировку
-      </ButtonUI>
-    </div>
+    <BaseForm :config="config" @submit="$emit('create', getWorkoutValues())" />
   </form>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import BaseForm from '../../../shared/components/base-form/BaseForm.vue';
+import { FormGroup } from '../../../shared/types/base-form/FormGroup';
 
-import TextareaUI from '../../../shared/UI/TextareaUI.vue';
-import InputWithoutFloatingUI from '../../../shared/UI/InputWithoutFloatingUI.vue';
-import { Workout } from '../../../models/Workout';
-import ButtonUI from '../../../shared/UI/ButtonUI.vue';
-import InputUI from '../../../shared/UI/InputUI.vue';
-import DatePickerUI from '../../../shared/UI/DatePickerUI.vue';
+defineEmits(['create']);
 
-const workout = ref<Workout>({
-  name: '',
-  description: '',
-  dateWorkout: '',
-  cyclesCount: 0,
-  cyclesCountTimeout: 0,
-  exerciseTimeout: 0,
-});
+const config: FormGroup[] = [
+  {
+    id: 1,
+    styles: 'flex flex-col gap-20',
+    controls: [
+      {
+        control: 'inputText',
+        name: 'name',
+        label: 'Название тренировки',
+        value: '',
+      },
+      {
+        control: 'textareaText',
+        name: 'description',
+        label: 'Описание тренировки',
+        value: '',
+      },
+    ],
+  },
+  {
+    id: 2,
+    styles: 'workout-form__grid',
+    controls: [
+      {
+        control: 'inputWithoutLabel',
+        name: 'cyclesCount',
+        label: 'Кол-во кругов',
+        value: 0,
+      },
+      {
+        control: 'inputWithoutLabel',
+        name: 'cyclesCountTimeout',
+        label: 'Время отдыха между кругами',
+        value: 0,
+      },
+      {
+        control: 'inputWithoutLabel',
+        name: 'exerciseTimeout',
+        label: 'Время отдыха между упражнениями',
+        value: 0,
+      },
+    ],
+  },
+  {
+    id: 3,
+    styles: 'flex ai-center jc-space',
+    controls: [
+      {
+        control: 'datePicker',
+        name: 'dateWorkout',
+        label: '',
+        value: new Date(),
+      },
+      {
+        control: 'button',
+        name: 'submit',
+        label: 'Создать тренировку',
+      },
+    ],
+  },
+];
 
-const dateWorkout = ref(new Date());
+function getWorkoutValues() {
+  const values: any = {};
+  config.forEach((fg) =>
+    fg.controls.forEach((control) => {
+      if (control.value) {
+        values[control.name] = control.value;
+      }
+    }),
+  );
+
+  return values;
+}
 </script>
