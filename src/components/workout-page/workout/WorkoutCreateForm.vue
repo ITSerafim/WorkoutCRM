@@ -73,7 +73,7 @@ const config: FormGroup[] = [
 ];
 
 function getWorkoutValues() {
-  const values: any = {};
+  const values: any = { key: 'workoutCreate' };
   config.forEach((fg) =>
     fg.controls.forEach((control) => {
       if (control.value) {

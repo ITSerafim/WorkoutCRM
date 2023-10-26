@@ -22,7 +22,15 @@
     </div>
     <div class="flex ai-center jc-space">
       <DatePickerUI v-model="date" />
-      <ButtonUI type="submit" class="login"> Добавить упражнение </ButtonUI>
+      <ButtonUI
+        type="submit"
+        class="login"
+        @click.prevent="
+          $emit('create', { ...exercise, date, key: 'exerciseCreate' })
+        "
+      >
+        Добавить упражнение
+      </ButtonUI>
     </div>
   </form>
 </template>

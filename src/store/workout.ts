@@ -13,33 +13,6 @@ export const useWorkoutStore = defineStore('workout', () => {
       cyclesCountTimeout: 2,
       exerciseTimeout: 2,
     },
-    {
-      id: 2,
-      name: 'Тренировка 1',
-      description: 'Описание для тренировки 1',
-      dateWorkout: new Date(Date.now()).toLocaleDateString('sv'),
-      cyclesCount: 10,
-      cyclesCountTimeout: 2,
-      exerciseTimeout: 2,
-    },
-    {
-      id: 3,
-      name: 'Тренировка 1',
-      description: 'Описание для тренировки 1',
-      dateWorkout: new Date(Date.now()).toLocaleDateString('sv'),
-      cyclesCount: 10,
-      cyclesCountTimeout: 2,
-      exerciseTimeout: 2,
-    },
-    {
-      id: 4,
-      name: 'Тренировка 1',
-      description: 'Описание для тренировки 1',
-      dateWorkout: new Date(Date.now()).toLocaleDateString('sv'),
-      cyclesCount: 10,
-      cyclesCountTimeout: 2,
-      exerciseTimeout: 2,
-    },
   ]);
 
   function addWorkout(workout: Workout) {
