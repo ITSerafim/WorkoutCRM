@@ -40,6 +40,8 @@ import { useWorkoutStore } from '../../../store/workout.ts';
 
 const { workouts, updateWorkout } = useWorkoutStore();
 
+console.log(workouts)
+
 const columns: BaseTableColumns[] = [
   { header: 'Название тренировки', field: 'name' },
   { header: 'Описание тренировки', field: 'description' },

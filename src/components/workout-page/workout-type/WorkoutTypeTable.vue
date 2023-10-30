@@ -1,14 +1,23 @@
 <template>
   <BaseTable
     :columns="columns"
-    :data="data"
+    :data="workoutTypes"
     empty-message="Типы тренировки отсутствуют"
-  ></BaseTable>
+  >
+    <template #mapping="{ item, field }">
+      {{ mapper(item, field) }}
+    </template></BaseTable
+  >
 </template>
 
 <script setup lang="ts">
 import BaseTable from '../../../shared/components/base-table/BaseTable.vue';
 import { BaseTableColumns } from '../../../shared/types/BaseTableColumns';
+import { useWorkoutTypeStore } from '../../../store/workout-type';
+
+const { workoutTypes } = useWorkoutTypeStore();
+
+console.log(workoutTypes);
 
 const columns: BaseTableColumns[] = [
   {
@@ -21,9 +30,12 @@ const columns: BaseTableColumns[] = [
   },
 ];
 
-interface WorkoutType {
-  id?: number;
-}
+function mapper(value: any, field: string): string {
+  const currentDict: any = {
+    name: value.name,
+    description: value.description,
+  };
 
-const data: WorkoutType[] = [];
+  return currentDict[field] || value[field] || '-';
+}
 </script>
