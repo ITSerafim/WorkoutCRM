@@ -28,8 +28,10 @@ import ExerciseCreateForm from '../components/workout-page/exercise/ExerciseCrea
 import { Workout } from '../models/Workout';
 import { useWorkoutStore } from '../store/workout';
 import { createMethod } from '../shared/components/base-form/methods/create.ts';
+import { useExerciseStore } from '../store/exercise';
 
 const { addWorkout } = useWorkoutStore();
+const { addExercise } = useExerciseStore();
 
 const forms: any = {
   createWorkoutForm: WorkoutCreateForm,
@@ -47,7 +49,8 @@ function createWorkout(workout: Workout) {
 }
 
 function createExercise(exercise: any) {
-  console.log(exercise);
+  addExercise(exercise);
+  showModal.value = false;
 }
 
 function callback(name: string) {
@@ -58,4 +61,3 @@ function callback(name: string) {
 const showModal = ref(false);
 const formName = ref('');
 </script>
-../shared/components/base-form/methods/BaseFormCrud.ts
