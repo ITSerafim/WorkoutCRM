@@ -6,12 +6,14 @@ export const tabs: Tab[] = [
     name: 'Тренировки',
     shareName: 'тренировкой',
     createName: 'тренеровку',
+    formName: 'createWorkoutForm',
   },
   {
     path: '/workout/exercises',
     name: 'Упражнения',
     shareName: 'упражнением',
     createName: 'упражнение',
+    formName: 'createExerciseForm',
   },
   {
     path: '/workout/types',

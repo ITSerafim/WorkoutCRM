@@ -1,27 +1,42 @@
 <template>
   <BaseTable
     :columns="columns"
-    :data="data"
+    :data="exercises"
     empty-message="Упражнения отсутствуют"
-  />
+  >
+    <template #mapping="{ item, field }">
+      {{ mapper(item, field) }}
+    </template>
+  </BaseTable>
 </template>
 
 <script setup lang="ts">
 import BaseTable from '../../../shared/components/base-table/BaseTable.vue';
 import { BaseTableColumns } from '../../../shared/types/BaseTableColumns';
+import { useExerciseStore } from '../../../store/exercise.ts';
+
+const { exercises } = useExerciseStore();
 
 const columns: BaseTableColumns[] = [
   { header: 'Название упражнения', field: 'name' },
   { header: 'Описание упражнения', field: 'description' },
   { header: 'Кол-во повторений', field: 'repeatsCount' },
   { header: 'Кол-во подходов', field: 'setsCounte' },
-  { header: 'Время отдыха между повторениями', field: 'repeatsCountTime' },
-  { header: 'Время отдыха между подходами', field: 'setsCountTime' },
+  { header: 'Время отдыха между повторениями', field: 'repeatTimeout' },
+  { header: 'Время отдыха между подходами', field: 'setTimeout' },
 ];
 
-interface Exc {
-  id: number;
-}
+function mapper(value: any, field: string): string {
+  const currentDict: any = {
+    name: value.name,
+    description: value.description,
+    dateExercise: value.dateExercise,
+    repeatsCount: value.repeatsCount,
+    setsCount: value.setsCount,
+    repeatTimeout: value.repeatTimeout,
+    setTimeout: value.setTimeout,
+  };
 
-const data: Exc[] = [];
+  return currentDict[field] || value[field] || '-';
+}
 </script>

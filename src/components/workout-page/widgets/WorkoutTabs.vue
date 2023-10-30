@@ -1,9 +1,9 @@
 <template>
   <PageHeader
     :header="tab.name"
-    :shareName="tab.shareName"
-    :createName="tab.createName"
-    @open="$emit('openModal')"
+    :share-name="tab.shareName"
+    :create-name="tab.createName"
+    @open="$emit('openModal', tab.formName)"
   />
   <TabsUI :tabs="tabs" @tabInfo="(tab) => setTabInfo(tab)" />
 </template>
@@ -19,6 +19,7 @@ const tab = ref<Tab>({
   name: 'Тренировки',
   shareName: 'тренировкой',
   createName: 'тренировку',
+  formName: 'createWorkoutForm',
 });
 
 function setTabInfo(info: Tab) {
@@ -26,6 +27,7 @@ function setTabInfo(info: Tab) {
     name: info.name,
     shareName: info.shareName,
     createName: info.createName,
+    formName: info.formName,
   };
 }
 </script>
