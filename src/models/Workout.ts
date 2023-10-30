@@ -1,3 +1,5 @@
+import { TimeoutUnits } from '../shared/types/enums/timeout-units';
+
 export interface Workout {
   id?: number;
   name: string;
@@ -6,4 +8,6 @@ export interface Workout {
   cyclesCount: number;
   cyclesCountTimeout: number;
   exerciseTimeout: number;
+  cyclesTimeoutUnit?: TimeoutUnits;
+  setTimeoutUnit?: TimeoutUnits;
 }
