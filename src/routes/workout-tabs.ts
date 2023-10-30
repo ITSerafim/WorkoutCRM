@@ -20,5 +20,6 @@ export const tabs: Tab[] = [
     name: 'Тип тренировки',
     shareName: 'типом тренировки',
     createName: 'тип тренировки',
+    formName: 'createWorkoutType',
   },
 ];
