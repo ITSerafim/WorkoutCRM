@@ -1,7 +1,7 @@
 <template>
   <section class="tabs">
     <router-link
-      v-for="(tab, idx) in props.tabs"
+      v-for="(tab, idx) in tabs"
       :key="idx"
       :to="tab.path as string"
       active-class="active"
@@ -16,5 +16,5 @@
 <script setup lang="ts">
 import { TabProps } from '../types/props/TabProps';
 
-const props = defineProps<TabProps>();
+defineProps<TabProps>();
 </script>
