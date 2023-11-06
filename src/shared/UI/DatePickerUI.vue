@@ -24,35 +24,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td
-                v-for="(item, idx) of firstWeek"
-                :key="idx"
-                :class="item.styleClass ?? ''"
-              >
-                {{ item.value }}
-              </td>
-            </tr>
-            <tr>
-              <td v-for="(number, idx) of secondWeek" :key="idx">
-                {{ number }}
-              </td>
-            </tr>
-            <tr>
-              <td v-for="(number, idx) of thirdWeek" :key="idx">
-                {{ number }}
-              </td>
-            </tr>
-            <tr>
-              <td v-for="(number, idx) of fourdWeek" :key="idx">
-                {{ number }}
-              </td>
-            </tr>
-            <tr>
-              <td v-for="(number, idx) of fifthWeek" :key="idx">
-                {{ number }}
-              </td>
-            </tr>
+            <template v-for="cal of calendar">
+              <tr v-for="(weaks, idx) of getWeeks(cal.days)" :key="idx">
+                <td
+                  v-for="(day, idx) of weaks"
+                  :key="idx"
+                  :class="day === toDay() && 'today'"
+                >
+                  {{ day }}
+                </td>
+              </tr>
+            </template>
           </tbody>
         </table>
       </div>
@@ -62,43 +44,24 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { range } from '../utils/range';
+import { chunk } from '../utils/chunk';
+import { toDay } from '../utils/date';
 
 let active = ref(false);
 
+interface Calendar {
+  month: string;
+  days: number;
+}
+
 const days = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
 
-const firstWeek = [
-  {
-    value: 1,
-  },
-  {
-    value: 2,
-  },
-  {
-    value: 3,
-  },
-  {
-    value: 4,
-  },
-  {
-    styleClass: 'today',
-    value: 5,
-  },
-  {
-    value: 6,
-  },
-  {
-    value: 7,
-  },
-];
+const calendar: Calendar[] = [{ month: 'Январь', days: 32 }];
 
-const secondWeek = [8, 9, 10, 11, 12, 13, 14];
-
-const thirdWeek = [15, 16, 17, 18, 19, 20, 21];
-
-const fourdWeek = [22, 23, 24, 25, 26, 27, 28];
-
-const fifthWeek = [29, 30];
+function getWeeks(days: number): number[][] {
+  return chunk(range(1, days), 7);
+}
 </script>
 
 <style lang="scss" scoped>
@@ -109,10 +72,10 @@ const fifthWeek = [29, 30];
   position: relative;
   border-radius: 8px;
   background: $bg-primary;
-  color: $text-main;
+  color: $text-primary;
   padding: 20px;
   &:active {
-    filter: drop-shadow(0px 4px 24px $shadow-main);
+    filter: drop-shadow(0px 4px 24px $shadow-primary);
   }
 }
 
@@ -131,7 +94,7 @@ const fifthWeek = [29, 30];
   border: 2px solid #2b2b2e;
   background: $bg-second;
   padding: 24px;
-  box-shadow: 0px 4px 24px 0px #0000003d;
+  box-shadow: 0px 4px 24px 0px $shadow-second;
   z-index: 1000;
   transition: all 0.3s ease;
   &:active {
@@ -159,7 +122,7 @@ const fifthWeek = [29, 30];
   display: flex;
   width: 100%;
   content: '';
-  border: 1px solid #363638;
+  border: 1px solid $border-primary;
   opacity: 0.5;
 }
 
@@ -180,7 +143,7 @@ const fifthWeek = [29, 30];
 .datepicker-table td {
   text-align: center;
   padding: 15px;
-  color: var(--neutral-blue-black-10, #fdfdfd);
+  color: var(--neutral-blue-black-10, $text-addit);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -190,14 +153,14 @@ const fifthWeek = [29, 30];
   &:hover {
     border-radius: 30%;
     background: $bg-primary;
-    box-shadow: 0px 4px 24px 0px $shadow-main;
+    box-shadow: 0px 4px 24px 0px $shadow-primary;
   }
 }
 
 .today {
   border-radius: 30%;
   background: $bg-primary;
-  box-shadow: 0px 4px 24px 0px $shadow-main;
+  box-shadow: 0px 4px 24px 0px $shadow-primary;
 }
 
 .datepicker-enter-from {
