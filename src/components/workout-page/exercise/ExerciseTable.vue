@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import BaseTable from '../../../shared/components/base-table/BaseTable.vue';
-import { BaseTableColumns } from '../../../shared/types/BaseTableColumns';
+import { BaseTableColumns } from '../../../shared/types/base-table/BaseTableColumns';
 import { useExerciseStore } from '../../../store/exercise.ts';
 
 const { exercises } = useExerciseStore();
