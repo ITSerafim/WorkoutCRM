@@ -33,14 +33,12 @@
 import { ref } from 'vue';
 import WorkoutEditForm from './WorkoutEditForm.vue';
 import BaseTable from '../../../shared/components/base-table/BaseTable.vue';
-import { BaseTableColumns } from '../../../shared/types/BaseTableColumns';
+import { BaseTableColumns } from '../../../shared/types/base-table/BaseTableColumns';
 import ModalUI from '../../../shared/UI/ModalUI.vue';
 import { Workout } from '../../../models/Workout.ts';
 import { useWorkoutStore } from '../../../store/workout.ts';
 
 const { workouts, updateWorkout } = useWorkoutStore();
-
-console.log(workouts)
 
 const columns: BaseTableColumns[] = [
   { header: 'Название тренировки', field: 'name' },
@@ -78,3 +76,4 @@ const showModal = ref<boolean>(false);
 
 const currentItem = ref<any>(null);
 </script>
+../../../shared/types/base-table/BaseTableColumns

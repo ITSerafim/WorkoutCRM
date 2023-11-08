@@ -18,6 +18,7 @@
   </AuthLayout>
 </template>
 
+
 <script setup lang="ts">
 import FormHeader from '../components/auth/forms-shared/FormHeader.vue';
 import FormFooter from '../components/auth/forms-shared/FormFooter.vue';

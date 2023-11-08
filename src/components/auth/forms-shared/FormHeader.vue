@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  title: String,
-});
+import { SharedFormHeaderProps } from '../../../shared/types/props/AuthProps';
+
+defineProps<SharedFormHeaderProps>();
 </script>

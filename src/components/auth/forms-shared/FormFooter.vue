@@ -6,9 +6,8 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  message: String,
-  path: String,
-  linkName: String,
-});
+import { SharedFormFooterProps } from '../../../shared/types/props/AuthProps';
+
+defineProps<SharedFormFooterProps>();
 </script>
+

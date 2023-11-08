@@ -3,11 +3,23 @@
     <InputUI v-model="register.name" label="Кто вы ?" />
     <section class="choice-role">
       <div class="radio-button">
-        <input id="sportsmen" v-model="register.role" class="radio" value="sportsmen" type="radio">
+        <input
+          id="sportsmen"
+          v-model="register.role"
+          class="radio"
+          value="sportsmen"
+          type="radio"
+        />
         <label class="radio-label" for="sportsmen">Спортсмен</label>
       </div>
       <div class="radio-button">
-        <input id="couch" v-model="register.role" class="radio" value="couch" type="radio">
+        <input
+          id="couch"
+          v-model="register.role"
+          class="radio"
+          value="couch"
+          type="radio"
+        />
         <label class="radio-label" for="couch">Тренер</label>
       </div>
     </section>
@@ -28,21 +40,21 @@
     </div>
   </form>
 </template>
-  
+
 <script setup lang="ts">
 import { ref } from 'vue';
 import InputUI from '../../../shared/UI/InputUI.vue';
 import ButtonUI from '../../../shared/UI/ButtonUI.vue';
 // import CheckboxUI from '../../../shared/UI/CheckboxUI.vue';
+import { Register } from '../../../models/Auth';
 
-const register = ref({
+const register = ref<Register>({
   email: '',
   password: '',
   name: '',
-  role: ''
+  role: '',
 });
 </script>
-  
 
 <style lang="scss">
 .choice-role {
@@ -65,18 +77,17 @@ const register = ref({
   opacity: 0;
 }
 
-.radio+label {
+.radio + label {
   display: flex;
   align-items: center;
   user-select: none;
   cursor: pointer;
   padding: 20px 50px;
   border-radius: 8px;
-  border: 2px solid #2B2B2E;
+  border: 2px solid #2b2b2e;
 }
 
-
-.radio+label::before {
+.radio + label::before {
   content: '';
   display: inline-block;
   width: 1em;
@@ -91,12 +102,12 @@ const register = ref({
   background-size: 50% 50%;
 }
 
-.radio:checked+label {
+.radio:checked + label {
   color: #fff;
-  background-color: #3596FE;
+  background-color: #3596fe;
 }
 
-.radio:checked+label::before {
+.radio:checked + label::before {
   border-color: #fff;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
 }

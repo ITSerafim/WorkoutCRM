@@ -17,7 +17,11 @@
           class="body-row"
           @click="$emit('rowClick', { ...item, id: item.id })"
         >
-          <td v-for="(field, i) of props.columns" :key="i" :data-label="field.field">
+          <td
+            v-for="(field, i) of props.columns"
+            :key="i"
+            :data-label="field.field"
+          >
             <slot name="mapping" :item="item" :field="field.field"> </slot>
           </td>
         </tr>
@@ -31,11 +35,7 @@
 </template>
 
 <script setup lang="ts" generic="T extends { id?: number }">
-interface TableProps {
-  columns: any[];
-  emptyMessage: string;
-  data?: T[];
-}
+import { TableProps } from '../../types/base-table/BaseTableProps';
 
-const props = defineProps<TableProps>();
+const props = defineProps<TableProps<T>>();
 </script>
