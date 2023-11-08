@@ -1,0 +1,11 @@
+@mixin font-styles($font-size, $font-style, $font-weight, $line-height) {
+  font-size: $font-size;
+  font-style: $font-style;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+
+@mixin text-bold-1(){
+    @include font-styles(16px, normal, 600, 20px)
+} 

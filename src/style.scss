@@ -1,8 +1,12 @@
 @import 'normalize.css';
 @import url('https://fonts.cdnfonts.com/css/gilroy-bold');
 
+@import 'styles/common/colors';
+@import 'styles/common/text';
 @import 'styles/common/display.scss';
 @import 'styles/common/form.scss';
+@import 'styles/common/transitions.scss';
+@import 'styles/common/hovers.scss';
 @import 'styles/auth-layout.scss';
 @import 'styles/auth-form.scss';
 @import 'styles/main-layout/sidebar.scss';
@@ -21,4 +25,13 @@ body {
   overflow: hidden;
   cursor: default;
   background-color: #1d1d1e;
+}
+
+.link-active {
+  color: #3596fe;
+  filter: drop-shadow(0px 4px 24px rgba(53, 150, 254, 0.48));
+}
+
+.list-style-none {
+  list-style-type: none;
 }

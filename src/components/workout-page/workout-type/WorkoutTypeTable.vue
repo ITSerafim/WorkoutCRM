@@ -17,8 +17,6 @@ import { useWorkoutTypeStore } from '../../../store/workout-type';
 
 const { workoutTypes } = useWorkoutTypeStore();
 
-console.log(workoutTypes);
-
 const columns: BaseTableColumns[] = [
   {
     header: 'Название типа',

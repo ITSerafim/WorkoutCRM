@@ -1,0 +1,10 @@
+@import '_mixins.scss';
+@import '../colors';
+
+.text-regular {
+  @include text-bold-1();
+}
+
+.text-decor-none {
+  text-decoration: none;
+}

@@ -1,7 +1,12 @@
 <template>
-  <li class="sb-list-item">
-    <font-awesome-icon :icon="icon" class="sb-icon" />
-    <router-link :to="path as string" class="sb-link">{{ name }}</router-link>
+  <li class="list-style-none">
+    <router-link
+      :to="path as string"
+      class="txt-hover-primary trans-1 text-regular text-decor-none txt-color-addit-2 flex ai-center gap-25"
+      active-class="link-active"
+    >
+      <font-awesome-icon :icon="icon" />{{ name }}</router-link
+    >
   </li>
 </template>
 
