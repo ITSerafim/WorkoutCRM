@@ -2,7 +2,7 @@
   <form :class="formStyles">
     <template v-for="formGroup of config" :key="formGroup.id">
       <section :class="formGroup.styles">
-        <template v-for="(control, idx) of formGroup.controls" :key="idx">
+        <template v-for="control of formGroup.controls" :key="control">
           <component
             :is="controls[control.control]"
             v-model="control.value"
