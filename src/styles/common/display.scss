@@ -12,9 +12,18 @@
   align-items: center;
 }
 
+// align-self
+.as-center {
+  align-self: center;
+}
+
 //justify-content
 .jc-space {
   justify-content: space-between;
+}
+
+.jc-center {
+  justify-content: center;
 }
 
 @for $count from 0 through 100 {

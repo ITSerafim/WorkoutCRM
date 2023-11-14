@@ -5,7 +5,10 @@
   line-height: $line-height;
 }
 
+@mixin text-bold-1() {
+  @include font-styles(16px, normal, 600, 20px);
+}
 
-@mixin text-bold-1(){
-    @include font-styles(16px, normal, 600, 20px)
-} 
+@mixin header-1() {
+  @include font-styles(36px, normal, 700, normal);
+}
