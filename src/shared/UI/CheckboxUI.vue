@@ -2,37 +2,26 @@
   <div class="checkbox">
     <input
       id="checkbox"
-      v-model="model"
       class="checkbox-control"
       type="checkbox"
-      :value="value"
+      :value="modelValue"
+      @input="updateValue"
     />
     <label for="checkbox" class="label">{{ label }}</label>
   </div>
 </template>
 
-
 <script setup lang="ts">
-import { computed } from 'vue';
+import { CheckboxProps } from '../types/props/CheckboxProps';
 
-const props = defineProps({
-  modelValue: { type: [Array, Boolean] },
-  value: { type: [String, Boolean, Object] },
-  label: { type: String },
-});
+defineProps<CheckboxProps>();
 
 const emit = defineEmits(['update:modelValue']);
 
-const model = computed({
-  get() {
-    return props.modelValue;
-  },
-  set(value) {
-    emit('update:modelValue', value);
-  },
-});
+const updateValue = (event: Event) => {
+  emit('update:modelValue', (event.target as HTMLInputElement).value);
+};
 </script>
-
 
 <style lang="scss" scoped>
 .checkbox {

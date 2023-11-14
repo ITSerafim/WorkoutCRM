@@ -1,19 +1,19 @@
 <template>
-  <button :class="`btn ${extraClass}`" :type="type as BtnType">
-    <slot></slot>
+  <button :class="`btn ${extraClass}`" :type="validator">
+    <span v-if="withIcon" class="flex jc-center ai-center gap-10">
+      <img :src="`src/assets/${iconName}`" alt="icon" />
+      <slot></slot>
+    </span>
+    <slot v-else></slot>
   </button>
 </template>
 
 <script setup lang="ts">
-type BtnType = 'button' | 'submit' | 'reset';
+import { ButtonProps } from '../types/props/ButtonProps';
 
-defineProps({
-  type: {
-    type: String,
-    default: 'button',
-    validator: (value: string) => ['button', 'submit', 'reset'].includes(value),
-  },
-  extraClass: String,
+withDefaults(defineProps<ButtonProps>(), {
+  default: 'button',
+  validator: 'button' || 'submit' || 'reset',
 });
 </script>
 
