@@ -9,6 +9,7 @@
             :withIcon="control.withIcon"
             :iconName="control.iconName"
             :controlStyles="control.controlStyles"
+            :radioGroup="control.radioGroup"
             :path="control.linkPath"
             :label="control.label"
             @callback="$emit('submit')"
@@ -29,6 +30,7 @@ import InputWithoutLabelControl from './controls/InputWithoutLabelControl.vue';
 import ButtonControl from './controls/ButtonControl.vue';
 import DatePickerControl from './controls/DatePickerControl.vue';
 import CheckboxControl from './controls/CheckboxControl.vue';
+import RadioButtonControl from './controls/RadioButtonControl.vue';
 import LinkControl from './controls/LinkControl.vue';
 
 const controls: Controls = {
@@ -39,6 +41,7 @@ const controls: Controls = {
   datePicker: DatePickerControl,
   checkbox: CheckboxControl,
   link: LinkControl,
+  radioButtonGroup: RadioButtonControl,
 };
 
 defineProps<BaseFormProps>();
