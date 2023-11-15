@@ -5,6 +5,14 @@
   @include text-bold-1();
 }
 
+.main-heading {
+  @include header-1();
+}
+
 .text-decor-none {
   text-decoration: none;
+}
+
+.text-center {
+  text-align: center;
 }

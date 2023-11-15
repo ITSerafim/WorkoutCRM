@@ -1,10 +1,9 @@
 <template>
-  <div class="register">
+  <div class="text-regular txt-color-primary as-center">
     {{ message }}
     <router-link class="a-link" :to="`/${path}`">{{ linkName }} </router-link>
   </div>
 </template>
-
 
 <script setup lang="ts">
 defineProps({
