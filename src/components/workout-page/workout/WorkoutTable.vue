@@ -10,7 +10,7 @@
     </template>
   </BaseTable>
   <Teleport to="body">
-    <ModalUI :show="showModal">
+    <ModalUI :show="showModal" @close="showModal = false">
       <template #header>
         <h3>Редактирование тренировки</h3>
       </template>
@@ -39,8 +39,6 @@ import { Workout } from '../../../models/Workout.ts';
 import { useWorkoutStore } from '../../../store/workout.ts';
 
 const { workouts, updateWorkout } = useWorkoutStore();
-
-console.log(workouts)
 
 const columns: BaseTableColumns[] = [
   { header: 'Название тренировки', field: 'name' },
