@@ -1,7 +1,9 @@
 <template>
-  <form class="workout-form">
-    <BaseForm :config="config" @submit="$emit('create', getWorkoutValues())" />
-  </form>
+  <BaseForm
+    form-styles="flex flex-col gap-25"
+    :config="config"
+    @submit="$emit('create', getWorkoutValues())"
+  />
 </template>
 
 <script setup lang="ts">
@@ -31,7 +33,7 @@ const config: FormGroup[] = [
   },
   {
     id: 2,
-    styles: 'workout-form__grid',
+    styles: 'adaptive-grid grid col-3 rows-auto gap-25',
     controls: [
       {
         control: 'inputWithoutLabel',
