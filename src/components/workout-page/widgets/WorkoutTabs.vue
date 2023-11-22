@@ -1,33 +1,20 @@
 <template>
   <PageHeader
-    :header="tab.name"
-    :share-name="tab.shareName"
-    :create-name="tab.createName"
-    @open="$emit('openModal', tab.formName)"
+    :header="currentTab?.name"
+    :share-name="currentTab?.shareName"
+    :create-name="currentTab?.createName"
+    @open="$emit('openModal', currentTab?.formName)"
   />
-  <TabsUI :tabs="tabs" @tabInfo="(tab) => setTabInfo(tab)" />
+  <TabsUI :tabs="store.tabs" @tabInfo="(tab) => store.setCurrentTab(tab)" />
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { Tab } from '../../../shared/types/Tab';
-import { tabs } from '../../../routes/workout-tabs';
+import { computed } from 'vue';
 import TabsUI from '../../../shared/UI/TabsUI.vue';
 import PageHeader from '../../../shared/components/page-header/PageHeader.vue';
+import { useWorkoutTabs } from '../../../store/tabs/workout-tabs';
 
-const tab = ref<Tab>({
-  name: 'Тренировки',
-  shareName: 'тренировкой',
-  createName: 'тренировку',
-  formName: 'createWorkoutForm',
-});
+const store = useWorkoutTabs();
 
-function setTabInfo(info: Tab) {
-  tab.value = {
-    name: info.name,
-    shareName: info.shareName,
-    createName: info.createName,
-    formName: info.formName,
-  };
-}
+const currentTab = computed(() => store.currentTab);
 </script>

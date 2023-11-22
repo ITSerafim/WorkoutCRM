@@ -16,9 +16,9 @@
 import ButtonUI from '../../UI/ButtonUI.vue';
 
 interface PageHeaderProps {
-  header: string;
-  shareName: string;
-  createName: string;
+  header?: string;
+  shareName?: string;
+  createName?: string;
 }
 
 defineProps<PageHeaderProps>();
