@@ -7,6 +7,7 @@ export interface Control {
   controlStyles?: string;
   linkPath?: string;
   value?: ControlValue;
+  radioGroup?: any;
   callback?: () => void;
 }
 

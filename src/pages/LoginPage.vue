@@ -31,7 +31,7 @@ defineEmits(['event']);
 const config: FormGroup[] = [
   {
     id: 1,
-    styles: 'flex flex-col gap-15 mb',
+    styles: 'flex flex-col gap-15',
     controls: [
       {
         control: 'inputText',
