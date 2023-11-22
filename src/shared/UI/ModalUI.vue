@@ -1,7 +1,7 @@
 <template>
   <Transition name="modal">
-    <section v-if="show" class="modal-mask">
-      <div class="modal-container">
+    <section v-if="show" class="modal-mask" @click="$emit('close')">
+      <div class="modal-container" @click.stop="">
         <div class="modal-header">
           <slot name="header">default header</slot>
         </div>
@@ -20,4 +20,6 @@ interface ModalProps {
 }
 
 defineProps<ModalProps>();
+
+defineEmits(['close']);
 </script>

@@ -10,7 +10,7 @@
     </template>
   </BaseTable>
   <Teleport to="body">
-    <ModalUI :show="showModal">
+    <ModalUI :show="showModal" @close="showModal = false">
       <template #header>
         <h3>Редактирование тренировки</h3>
       </template>
