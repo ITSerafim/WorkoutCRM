@@ -1,9 +1,15 @@
 <template>
   <div class="input-container">
     <label class="input-label">{{ label }}</label>
+    <img
+      v-if="icon"
+      :src="`/src/assets/icons/${icon}.svg`"
+      alt="icon"
+      class="input-icon"
+    />
     <input
-      class="custom-input"
-      placeholder=" "
+      :class="'custom-input ' + styles"
+      :placeholder="placeholder"
       :type="type"
       :value="modelValue"
       @input="updateValue"
@@ -14,8 +20,11 @@
 <script setup lang="ts">
 defineProps({
   modelValue: { type: [String, Number], required: true },
-  label: { type: String, required: true },
+  label: { type: String },
+  styles: { type: String },
   type: { type: String, default: 'text' },
+  placeholder: { type: String },
+  icon: { type: String },
 });
 
 const emit = defineEmits(['update:modelValue']);
@@ -29,6 +38,7 @@ const updateValue = (event: Event) => {
 .input-container {
   display: flex;
   flex-direction: column;
+  position: relative;
   gap: 8px;
 }
 
@@ -49,6 +59,13 @@ const updateValue = (event: Event) => {
     outline: none;
     border: 2px solid #3596fe;
   }
+}
+
+.input-icon {
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  left: 8px;
 }
 
 .input-label {

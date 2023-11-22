@@ -1,12 +1,18 @@
 <template>
   <div class="nav-search">
-    <InputUI :model-value="search" label="Поиск..." />
+    <InputWithoutFloatingUI
+      :model-value="search"
+      placeholder="Поиск..."
+      icon="search"
+      styles="text-start-imp bg-regular-imp"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import InputUI from '../../shared/UI/InputUI.vue';
 
-const search = ref<string>('');
+import InputWithoutFloatingUI from '../../shared/UI/InputWithoutFloatingUI.vue';
+
+const search = ref<string>('');;
 </script>
