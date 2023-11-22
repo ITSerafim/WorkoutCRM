@@ -13,6 +13,7 @@
 <script setup lang="ts">
 import FoodCard from './FoodCard.vue';
 
+// TODO mocks
 interface Card {
   title: string;
   type: string;

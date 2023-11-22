@@ -12,7 +12,8 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  image: String,
-});
+import { AuthLayout } from '../shared/types/props/LayoutProps';
+
+defineProps<AuthLayout>();
 </script>
+

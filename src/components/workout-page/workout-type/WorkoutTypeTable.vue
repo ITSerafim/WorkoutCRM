@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import BaseTable from '../../../shared/components/base-table/BaseTable.vue';
-import { BaseTableColumns } from '../../../shared/types/BaseTableColumns';
+import { BaseTableColumns } from '../../../shared/types/base-table/BaseTableColumns';
 import { useWorkoutTypeStore } from '../../../store/workout-type';
 
 const { workoutTypes } = useWorkoutTypeStore();
@@ -37,3 +37,4 @@ function mapper(value: any, field: string): string {
   return currentDict[field] || value[field] || '-';
 }
 </script>
+../../../shared/types/base-table/BaseTableColumns

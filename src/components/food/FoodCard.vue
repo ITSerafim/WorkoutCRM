@@ -14,11 +14,7 @@
 </template>
 
 <script setup lang="ts">
-interface FoodCardProps {
-  title: string;
-  type: string;
-  sportKind: string;
-}
+import { FoodCardProps } from '../../shared/types/props/FoodProps';
 
 defineProps<FoodCardProps>();
 </script>

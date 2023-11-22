@@ -1,4 +1,4 @@
-import { TimeoutUnits } from '../shared/types/enums/timeout-units';
+import { TimeoutUnits } from '../shared/types/enums/TimeoutUnits';
 
 export interface Workout {
   id?: number;
