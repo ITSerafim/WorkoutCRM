@@ -20,28 +20,18 @@ const routes = [
     children: [
       {
         path: 'all',
-        component: () => import('./components/workout-page/workout/WorkoutTable.vue'),
+        component: () =>
+          import('./components/workout-page/workout/WorkoutTable.vue'),
       },
       {
         path: 'exercises',
-        component: () => import('./components/workout-page/exercise/ExerciseTable.vue'),
+        component: () =>
+          import('./components/workout-page/exercise/ExerciseTable.vue'),
       },
       {
         path: 'types',
         component: () =>
           import('./components/workout-page/workout-type/WorkoutTypeTable.vue'),
-      },
-    ],
-  },
-  {
-    path: '/food',
-    name: 'food',
-    component: () => import('./pages/FoodPage.vue'),
-    redirect: '/food/all',
-    children: [
-      {
-        path: 'all',
-        component: () => import('./components/food/FoodList.vue'),
       },
     ],
   },

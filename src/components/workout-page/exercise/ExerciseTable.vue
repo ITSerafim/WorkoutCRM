@@ -40,4 +40,3 @@ function mapper(value: any, field: string): string {
   return currentDict[field] || value[field] || '-';
 }
 </script>
-../../../shared/types/base-table/BaseTableColumns

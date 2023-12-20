@@ -26,7 +26,6 @@
     <InputUI v-model="register.email" label="Email" />
     <InputUI v-model="register.password" label="Пароль" type="password" />
     <section class="forgot-section">
-      <!-- <CheckboxUI label="Запомнить меня" value="test" /> -->
       <a class="forget-pass" href="#">Забыли пароль ?</a>
     </section>
     <div class="btns">
@@ -45,7 +44,6 @@
 import { ref } from 'vue';
 import InputUI from '../../../shared/UI/InputUI.vue';
 import ButtonUI from '../../../shared/UI/ButtonUI.vue';
-// import CheckboxUI from '../../../shared/UI/CheckboxUI.vue';
 import { Register } from '../../../models/Auth';
 
 const register = ref<Register>({
@@ -62,6 +60,4 @@ const register = ref<Register>({
   grid-template-columns: 1fr 1fr;
   gap: 25px;
 }
-
-
 </style>

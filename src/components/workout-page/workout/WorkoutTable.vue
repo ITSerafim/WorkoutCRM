@@ -76,4 +76,3 @@ const showModal = ref<boolean>(false);
 
 const currentItem = ref<any>(null);
 </script>
-../../../shared/types/base-table/BaseTableColumns
